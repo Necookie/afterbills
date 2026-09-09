@@ -1,5 +1,5 @@
 /**
- * The Weekli math engine (SRS §2). Pure functions, no I/O.
+ * The AfterBills math engine (SRS §2). Pure functions, no I/O.
  *
  * Design decisions that fix the v1 spec:
  *  - Bills accrue against their ACTUAL due date, not a flat `/4.33` divisor, so

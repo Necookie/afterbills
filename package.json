@@ -1,8 +1,8 @@
 {
-  "name": "neco_weekli",
+  "name": "afterbills",
   "private": true,
   "version": "0.0.0",
-  "description": "Weekli — turn a weekly paycheck into one trustworthy Safe-to-Spend number.",
+  "description": "AfterBills — know what’s left after bills and savings are covered.",
   "packageManager": "pnpm@10.30.3",
   "engines": {
     "node": ">=22"
@@ -13,9 +13,9 @@
     "test": "turbo run test",
     "typecheck": "turbo run typecheck",
     "lint": "turbo run lint",
-    "core:test": "pnpm --filter @neco/core test",
-    "db:generate": "pnpm --filter @neco/core db:generate",
-    "db:push": "pnpm --filter @neco/core db:push"
+    "core:test": "pnpm --filter @afterbills/core test",
+    "db:generate": "pnpm --filter @afterbills/core db:generate",
+    "db:push": "pnpm --filter @afterbills/core db:push"
   },
   "devDependencies": {
     "turbo": "^2.3.0",

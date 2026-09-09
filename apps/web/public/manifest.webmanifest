@@ -1,24 +1,24 @@
 {
-  "name": "Weekli",
-  "short_name": "Weekli",
-  "description": "Know exactly what's safe to spend today.",
+  "name": "AfterBills: Payday Budget",
+  "short_name": "AfterBills",
+  "description": "Know what’s left. Spend without guessing.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#e8ebe6",
-  "theme_color": "#e8ebe6",
+  "theme_color": "#9fe870",
   "icons": [
     {
-      "src": "/icon-192.png",
+      "src": "/icon-192.svg",
       "sizes": "192x192",
-      "type": "image/png",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     },
     {
-      "src": "/icon-512.png",
+      "src": "/icon-512.svg",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     }
   ]

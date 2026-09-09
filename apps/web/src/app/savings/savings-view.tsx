@@ -12,7 +12,7 @@ export function SavingsView() {
   const [addOpen, setAddOpen] = useState(false);
   // Use the split value rather than re-deriving income * savingsPct: computeSplit
   // already accounts for shortfall priority, so this matches what was actually
-  // allocated to the savings vault on payday.
+  // allocated to the savings reserve on payday.
   const weeklyTarget = d.split.savings;
 
   return (

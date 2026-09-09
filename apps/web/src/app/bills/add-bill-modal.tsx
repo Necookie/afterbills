@@ -5,7 +5,7 @@ import {
   normalizeToWeekly,
   toMinor,
   type RecurrenceFrequency,
-} from "@neco/core";
+} from "@afterbills/core";
 import { useState } from "react";
 import { Modal, modalInputCls } from "@/components/ui";
 import { getCurrencySymbol } from "@/lib/format";

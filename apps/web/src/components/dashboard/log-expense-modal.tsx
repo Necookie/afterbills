@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getShortDayLabelsForStart, weekdayIndexFrom } from "@neco/core";
+import { getShortDayLabelsForStart, weekdayIndexFrom } from "@afterbills/core";
 import { Modal, modalInputCls } from "@/components/ui";
 import { getCurrencySymbol } from "@/lib/format";
 import { CATEGORIES, ESSENTIAL_CATEGORIES, type Category } from "@/lib/types";

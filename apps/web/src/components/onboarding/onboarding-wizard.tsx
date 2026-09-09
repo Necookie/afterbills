@@ -18,7 +18,7 @@ import {
   type Weekday,
   WEEKDAY_LABEL,
   WEEKDAY_ORDER,
-} from "@neco/core";
+} from "@afterbills/core";
 import {
   ARCHETYPES,
   COMMON_BILL_PRESETS,
@@ -310,7 +310,7 @@ export function OnboardingWizard() {
           <div className="flex items-center gap-2">
             <span className="size-2 rounded-full bg-primary" />
             <p className="text-xs font-bold uppercase tracking-wider text-white/60">
-              Your Weekli Blueprint
+              Your AfterBills Blueprint
             </p>
           </div>
 
@@ -348,17 +348,17 @@ export function OnboardingWizard() {
             </div>
           </div>
 
-          {/* 3-Vault Split Overview */}
+          {/* 3-reserve payday split overview */}
           <div className="mt-6 space-y-2 rounded-xl bg-white/5 p-4 text-xs">
             <p className="font-semibold text-white/70">Your Weekly Payday Allocation:</p>
             <div className="flex items-center justify-between py-1 border-b border-white/5">
-              <span className="text-white/60">🏦 Bills &amp; Commitments Vault:</span>
+              <span className="text-white/60">🏦 Bills &amp; Commitments Reserve:</span>
               <span className="font-bold text-white tabular-nums">
                 ₱{weeklyBills.toLocaleString("en-PH")}/wk
               </span>
             </div>
             <div className="flex items-center justify-between py-1 border-b border-white/5">
-              <span className="text-white/60">🐷 Savings &amp; Buffer Vault:</span>
+              <span className="text-white/60">🐷 Savings &amp; Buffer Reserve:</span>
               <span className="font-bold text-primary tabular-nums">
                 ₱{weeklySavings.toLocaleString("en-PH")}/wk ({savingsPct}%)
               </span>

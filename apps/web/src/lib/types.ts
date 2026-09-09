@@ -1,11 +1,11 @@
 /**
  * Application-level domain types and category definitions for the web app.
  *
- * These types sit above @neco/core (which owns money/engine types) and
+ * These types sit above @afterbills/core (which owns money/engine types) and
  * describe the shape of the view-model state stored in the browser.
  */
 
-import type { Bill, BillAccrual, Weekday } from "@neco/core";
+import type { Bill, BillAccrual, Weekday } from "@afterbills/core";
 
 // ─── Expense categories ──────────────────────────────────────────────────────
 
@@ -108,6 +108,5 @@ export type AppState = {
   contributions: Contribution[];
   targetSliders: TargetSliders;
 };
-
 
 

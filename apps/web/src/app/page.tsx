@@ -19,7 +19,7 @@ export default function Home() {
   const { user: clerkUser } = useUser();
   const { state, dashboard: d } = useAppStore();
 
-  const userName = clerkUser?.firstName || clerkUser?.fullName || "Neco";
+  const userName = clerkUser?.firstName || clerkUser?.fullName || "there";
 
   // If the user has not completed onboarding, smoothly route to the calibration wizard
   useEffect(() => {
@@ -48,7 +48,7 @@ export default function Home() {
                   <Sparkles className="size-4" />
                 </span>
                 <div>
-                  <p className="font-bold text-ink-deep">Personalize Your Weekli Plan</p>
+                  <p className="font-bold text-ink-deep">Personalize Your AfterBills Plan</p>
                   <p className="text-body">
                     Calibrate your income, subscriptions, and runway in 60 seconds.
                   </p>
@@ -78,7 +78,7 @@ export default function Home() {
       </div>
 
       <p className="mt-6 px-1 text-center text-xs text-mute">
-        Weekli tracks and plans your money — it never holds or moves funds.
+        AfterBills tracks and plans your money — it never holds or moves funds.
       </p>
     </>
   );

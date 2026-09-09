@@ -1,9 +1,9 @@
 {
-  "name": "@neco/core",
+  "name": "@afterbills/core",
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Platform-agnostic domain core: schema, money, dates, math engine, ledger.",
+  "description": "AfterBills platform-agnostic domain core: schema, money, dates, math engine, ledger.",
   "exports": {
     ".": "./src/index.ts",
     "./schema": "./src/db/schema.ts",

@@ -8,8 +8,14 @@
 import { CLEAN_INITIAL_STATE, DEFAULT_STATE } from "./seed.ts";
 import type { AppState } from "./types.ts";
 
-/** localStorage key for the persisted app state. */
-export const STORAGE_KEY = "weekli:state:v1";
+/** Current localStorage key for the persisted app state. */
+export const STORAGE_KEY = "afterbills:state:v1";
+
+/**
+ * The pre-rebrand key is retained as a read-only migration source. We do not
+ * remove it so users can safely roll back to an earlier build if needed.
+ */
+export const LEGACY_STORAGE_KEY = "weekli:state:v1";
 
 /**
  * Reads and deserialises app state from localStorage, returning
@@ -22,7 +28,8 @@ export const STORAGE_KEY = "weekli:state:v1";
 export function loadInitial(): AppState {
   if (typeof window === "undefined") return CLEAN_INITIAL_STATE;
   try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
+    const currentRaw = window.localStorage.getItem(STORAGE_KEY);
+    const raw = currentRaw ?? window.localStorage.getItem(LEGACY_STORAGE_KEY);
     if (!raw) return CLEAN_INITIAL_STATE;
     const parsed = JSON.parse(raw) as AppState;
 
@@ -44,6 +51,16 @@ export function loadInitial(): AppState {
     // Prune accruals whose billId has no corresponding bill
     const billIds = new Set(merged.bills.map((b) => b.id));
     merged.accruals = merged.accruals.filter((a) => billIds.has(a.billId));
+
+    // Migrate a valid legacy snapshot forward without deleting the source.
+    if (!currentRaw) {
+      try {
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+      } catch {
+        // A read-only storage context should not prevent the user from
+        // continuing with the valid legacy snapshot in memory.
+      }
+    }
     return merged;
   } catch {
     return CLEAN_INITIAL_STATE;

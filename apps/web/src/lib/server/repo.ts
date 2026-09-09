@@ -4,7 +4,7 @@
  * `userId` (the caller — apps/web/src/lib/server/actions.ts — is responsible
  * for sourcing that id from Clerk's `auth()`, never from client input).
  *
- * Maps between the Drizzle rows in @neco/core/schema (ledger-derived
+ * Maps between the Drizzle rows in @afterbills/core/schema (ledger-derived
  * balances, per SRS §3.4) and the AppState view-model shape store.tsx
  * already knows how to render, so the client-side store doesn't need to
  * change shape based on where its data came from.
@@ -23,8 +23,8 @@ import {
   type Weekday,
   weekdayIndexFrom,
   weekRange,
-} from "@neco/core";
-import { db, schema } from "@neco/core/db";
+} from "@afterbills/core";
+import { db, schema } from "@afterbills/core/db";
 import type {
   AppState,
   Category,

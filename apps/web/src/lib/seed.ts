@@ -1,8 +1,8 @@
 /**
- * Default seed data and initial clean states for Weekli.
+ * Default seed data and initial clean states for AfterBills.
  */
 
-import { toMinor } from "@neco/core";
+import { toMinor } from "@afterbills/core";
 import type { AppState, Settings, TargetSliders } from "./types.ts";
 
 // ─── Env-driven locale / currency ────────────────────────────────────────────

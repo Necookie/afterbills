@@ -1,16 +1,16 @@
-# WeeklyVault — Product Requirements & Software Requirements Specification
+# AfterBills — Product Requirements & Software Requirements Specification
 
 > **Status:** Draft v2 (re-planned) · **Date:** 2026-07-28
-> **Codename:** WeeklyVault *(final name TBD — see [§0.1](#01-naming))*
+> **Product:** AfterBills *(store title: AfterBills: Payday Budget)*
 > **Doc owner:** Product & Engineering
-> **Supersedes:** WeeklyVault PRD & SRS v1
+> **Supersedes:** Prior budgeting PRD & SRS v1
 
 ---
 
 ## 0. Preface
 
 ### 0.1 Naming
-The v1 document used **WeeklyVault**. "Vault" implies the app *holds* money, which it does not (see [§1.4 Legal & Trust Framing](#14-legal--trust-framing)). Recommended shortlist, in preference order: **Cushion**, **Slice**, **Weekli**. This document uses `WeeklyVault` as a placeholder codename; a rename is a single find-replace.
+The earlier document used a placeholder codename that implied the app held money. The final product name is **AfterBills**: a clear promise that the user sees what remains after bills and planned savings. AfterBills is an accounting and planning tool; it never holds or moves funds.
 
 ### 0.2 What changed from v1
 | Area | v1 | v2 |
@@ -30,7 +30,7 @@ The v1 document used **WeeklyVault**. "Vault" implies the app *holds* money, whi
 ## 1. Executive Summary & Vision
 
 ### 1.1 One-liner
-**WeeklyVault turns a weekly paycheck into a single trustworthy number — how much you can safely spend today — while quietly setting aside every monthly bill before its due date.**
+**AfterBills turns a weekly paycheck into a single trustworthy number — how much you can safely spend today — while quietly setting aside every monthly bill before its due date.**
 
 ### 1.2 The problem
 Mainstream budgeting apps (YNAB, EveryDollar, bank "Pots") default to a **monthly** cadence. People paid or given money **weekly** — students on allowances, gig/contract/freelance workers, hourly staff — must mentally amortize monthly bills (Netflix, Spotify, gym, mobile, rent slices) across 4–5 uneven paydays. The result is a predictable failure mode: **overspend early in the month, run short when bills land.**
@@ -42,8 +42,8 @@ Envelope budgeting and "Safe to Spend" are shipped patterns. Our defensible edge
 3. A **single daily "Safe-to-Spend" number** that already accounts for every future obligation.
 
 ### 1.4 Legal & Trust Framing
-**WeeklyVault is a personal budgeting and planning tool. It is NOT a bank, e-wallet, payment processor, or money-transfer service.**
-- "Vaults" are **virtual accounting buckets**, not real sub-accounts. No user funds are ever held, moved, or transmitted by WeeklyVault.
+**AfterBills is a personal budgeting and planning tool. It is NOT a bank, e-wallet, payment processor, or money-transfer service.**
+- "Reserves" are **virtual accounting buckets**, not real sub-accounts. No user funds are ever held, moved, or transmitted by AfterBills.
 - "Mark as paid" records that the user paid a bill **elsewhere** (their bank/app); it never initiates a payment.
 - The app provides **no personalized investment or financial advice**. Savings features are neutral goal-tracking.
 - This framing must appear in onboarding, the bills screen, and the ToS. Getting it wrong is an existential trust/regulatory risk, so it is a P0 constraint, not copy polish.

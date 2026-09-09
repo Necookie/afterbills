@@ -1,7 +1,7 @@
 "use client";
 
 import { useClerk, useUser } from "@clerk/nextjs";
-import { toMinor, toMajor, WEEKDAY_LABEL, WEEKDAY_ORDER, type Weekday } from "@neco/core";
+import { toMinor, toMajor, WEEKDAY_LABEL, WEEKDAY_ORDER, type Weekday } from "@afterbills/core";
 import { AlertTriangle, Database, RotateCcw, ShieldCheck, Sparkles, Trash2 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -369,7 +369,7 @@ export function SettingsView() {
       </div>
 
       <p className="mt-6 px-1 text-center text-xs text-mute">
-        Weekli tracks and plans your money — it never holds or moves funds.
+        AfterBills tracks and plans your money — it never holds or moves funds.
       </p>
     </>
   );

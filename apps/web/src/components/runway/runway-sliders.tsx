@@ -7,7 +7,7 @@ import {
   AlertCircle,
   Receipt,
 } from "lucide-react";
-import { toMinor } from "@neco/core";
+import { toMinor } from "@afterbills/core";
 import type { Dashboard } from "@/lib/dashboard";
 import { useAppStore } from "@/lib/store";
 import type { TargetSliders } from "@/lib/types";

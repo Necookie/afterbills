@@ -8,7 +8,7 @@
  */
 
 import { auth, clerkClient } from "@clerk/nextjs/server";
-import type { RecurrenceFrequency } from "@neco/core";
+import type { RecurrenceFrequency } from "@afterbills/core";
 import * as repo from "./repo.ts";
 import type { AppState, Category, OnboardingSetupData, Settings } from "../types.ts";
 

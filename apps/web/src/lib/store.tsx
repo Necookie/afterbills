@@ -1,7 +1,7 @@
 "use client";
 
 import { useUser } from "@clerk/nextjs";
-import { type Bill, type RecurrenceFrequency, toMinor } from "@neco/core";
+import { type Bill, type RecurrenceFrequency, toMinor } from "@afterbills/core";
 import {
   createContext,
   useCallback,

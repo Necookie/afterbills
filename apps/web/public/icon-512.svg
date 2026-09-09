@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">AfterBills</title>
+  <rect width="512" height="512" rx="112" fill="#0e0f0c"/>
+  <circle cx="256" cy="256" r="156" fill="#9fe870"/>
+  <path d="M256 142 166 370h54l18-48h36l18 48h54l-90-228Zm0 75 16 59h-32l16-59Z" fill="#0e0f0c"/>
+</svg>

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { toMinor } from "@neco/core";
+import { toMinor } from "@afterbills/core";
 import { computeDashboard } from "./dashboard.ts";
 import type { AppState } from "./types.ts";
 

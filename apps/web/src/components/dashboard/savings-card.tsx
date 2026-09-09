@@ -12,7 +12,7 @@ export function SavingsCard({ d }: { d: Dashboard }) {
           </span>
           <div>
             <p className="text-sm font-semibold text-ink-deep">{s.label}</p>
-            <p className="text-xs text-ink-deep/60">Savings vault</p>
+            <p className="text-xs text-ink-deep/60">Savings reserve</p>
           </div>
         </div>
         <span className="text-xs font-semibold text-ink-deep">{s.pct}%</span>

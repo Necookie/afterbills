@@ -1,4 +1,4 @@
-import type { TimeImpactResult } from "@neco/core";
+import type { TimeImpactResult } from "@afterbills/core";
 
 export function TimeImpactBadge({
   impact,

@@ -1,10 +1,10 @@
-# Weekli (`neco_weekli`)
+# AfterBills (`afterbills`)
 
 Turn a **weekly** paycheck into one trustworthy number — how much you can safely
 spend **today** — while automatically setting aside every monthly bill before
 its due date.
 
-> Weekli is a budgeting & planning tool. It is **not** a bank, wallet, or payment
+> AfterBills is a budgeting & planning tool. It is **not** a bank, wallet, or payment
 > processor — it never holds or moves money. See [PRD_SRS.md](./PRD_SRS.md).
 
 ## Stack
@@ -12,10 +12,10 @@ its due date.
 | Layer | Choice |
 | --- | --- |
 | Monorepo | pnpm workspaces + Turborepo |
-| Domain core | `@neco/core` — TypeScript, zero-dep math engine + ledger (shared by web now, Expo later) |
+| Domain core | `@afterbills/core` — TypeScript, zero-dep math engine + ledger (shared by web now, Expo later) |
 | Web (Phase A) | Next.js (App Router) mobile-first **PWA** |
 | Database | Turso (libSQL / edge SQLite) via Drizzle ORM |
-| Auth | Better Auth *(or Clerk)* — not yet wired |
+| Auth | Clerk — hosted sign-in with Google OAuth and email verification |
 | Mobile (Phase B) | Expo + `op-sqlite` (Turso embedded replicas → true offline) |
 
 ## Layout
@@ -25,6 +25,8 @@ its due date.
 ├── packages/core     # money, dates, math engine, ledger, Drizzle schema (+ tests)
 ├── apps/web          # Next.js mobile-first PWA
 ├── PRD_SRS.md        # product + software spec (source of truth)
+├── PRODUCT.md        # product register and brand decisions
+├── DESIGN.md         # AfterBills visual language and tokens
 ├── .env.example      # every env var you need
 └── .mcp.json         # MCP servers (Turso, GitHub, filesystem, context7)
 ```
@@ -53,8 +55,7 @@ pnpm db:push       # push schema to Turso
 - [x] Domain core: money, dates, **due-date accrual engine**, **Runway & Accrual Engine**, ledger — fully tested
 - [x] Drizzle schema (users, income_events, subscriptions with multi-frequency cadences, ledger, expenses)
 - [x] Next.js mobile-first PWA shell with live Runway meter, Safe-to-Spend dashboard, and dynamic Time Impact tags
-- [ ] Auth (Better Auth) + real user data
-- [ ] Wire the dashboard to Turso via server actions
-- [ ] Expense logging, bill reminders, rollover
-- [ ] Phase B: Expo app reusing `@neco/core`
-
+- [x] Clerk authentication and real user data via Turso server actions
+- [x] Expense logging, bill management, savings, and dashboard runway views
+- [ ] Bill reminders and rollover polish
+- [ ] Phase B: Expo app reusing `@afterbills/core`

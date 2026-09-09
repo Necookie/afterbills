@@ -21,7 +21,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       }
     : null;
 
-  const initial = user?.name ? user.name.charAt(0).toUpperCase() : "N";
+  const initial = user?.name ? user.name.charAt(0).toUpperCase() : "A";
 
   return (
     <div className="min-h-dvh lg:flex">

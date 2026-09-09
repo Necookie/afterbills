@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-**Weekli** (`neco_weekli`) — turns a weekly paycheck into one trustworthy "Safe-to-Spend"
+**AfterBills** (`afterbills`) — turns a weekly paycheck into one trustworthy "Safe-to-Spend"
 number while automatically setting aside every monthly bill before its due date. It is a
 budgeting/planning tool only — it never holds or moves money. Product/spec source of truth
 is [PRD_SRS.md](./PRD_SRS.md).
@@ -22,17 +22,17 @@ pnpm typecheck                       # turbo run typecheck (all packages)
 pnpm lint                            # turbo run lint
 pnpm test                            # turbo run test (all packages)
 
-pnpm core:test                       # run just @neco/core's tests (Node's native test runner)
-pnpm --filter @neco/core test -- --test-name-pattern=<name>  # run a single test
+pnpm core:test                       # run just @afterbills/core's tests (Node's native test runner)
+pnpm --filter @afterbills/core test -- --test-name-pattern=<name>  # run a single test
 
 pnpm db:generate                     # drizzle-kit: generate SQL migrations from packages/core/src/db/schema.ts
 pnpm db:push                         # drizzle-kit: push schema to Turso
-pnpm --filter @neco/core db:studio   # drizzle studio
+pnpm --filter @afterbills/core db:studio   # drizzle studio
 ```
 
-`@neco/core` and `apps/web` tests are plain `*.test.ts` files run directly via `node --test` (see the
+`@afterbills/core` and `apps/web` tests are plain `*.test.ts` files run directly via `node --test` (see the
 `test` scripts in `packages/core/package.json` and `apps/web/package.json`) — there is no Jest/Vitest config.
-Both run unified via `pnpm test` or package-scoped via `pnpm --filter @neco/core test` and `pnpm --filter web test`.
+Both run unified via `pnpm test` or package-scoped via `pnpm --filter @afterbills/core test` and `pnpm --filter @afterbills/web test`.
 
 ## Architecture
 
@@ -40,21 +40,21 @@ Both run unified via `pnpm test` or package-scoped via `pnpm --filter @neco/core
 
 pnpm workspaces (`apps/*`, `packages/*`) + Turborepo. Two packages exist today:
 
-- **`packages/core`** (`@neco/core`) — platform-agnostic domain logic: money, dates, the
+- **`packages/core`** (`@afterbills/core`) — platform-agnostic domain logic: money, dates, the
   budgeting math engine, ledger, and the Drizzle schema. Designed to be shared by the web
   app now and an Expo app later (see PRD_SRS.md §1.1 Monorepo rationale). It has **zero
   runtime deps** besides `@libsql/client`/`drizzle-orm` for the DB layer.
 - **`apps/web`** — Next.js 15 (App Router) mobile-first PWA, the only consumer today.
 
-`@neco/core`'s package exports are split on purpose:
+`@afterbills/core`'s package exports are split on purpose:
 ```
 "."         -> src/index.ts     # money, dates, engine, ledger, runway, types — NO db
 "./schema"  -> src/db/schema.ts # Drizzle table defs — server-only
 "./db"      -> src/db/client.ts # libSQL client — server-only
 ```
 The root barrel (`.`) deliberately does **not** re-export the DB layer, since it pulls in
-node/native deps that must never reach client bundles. Server code imports `@neco/core/schema`
-or `@neco/core/db` directly.
+node/native deps that must never reach client bundles. Server code imports `@afterbills/core/schema`
+or `@afterbills/core/db` directly.
 
 ### Money convention
 
@@ -90,11 +90,11 @@ render-ready view-model, memoized per state change in `store.tsx`.
 ### Web app state — client-only for now
 
 There is no backend wired up yet. Despite the Drizzle schema and ledger design existing in
-`@neco/core` (append-only `ledger` table is meant to be the source of truth — balances are
+`@afterbills/core` (append-only `ledger` table is meant to be the source of truth — balances are
 *derived*, never stored, per PRD_SRS.md §3.4), the web app currently keeps its entire
 `AppState` (settings, bills, accruals, expenses, savings, contributions, targetSliders) in
 React context (`apps/web/src/lib/store.tsx`) debounce-persisted to `localStorage`
-(`apps/web/src/lib/storage.ts`, key `weekli:state:v1`). `dashboard.ts` explicitly says it
+(`apps/web/src/lib/storage.ts`, key `afterbills:state:v1`; the legacy `weekli:state:v1` key is read once for migration). `dashboard.ts` explicitly says it
 "stands in for real user data + ledger until auth and Turso are wired in." When wiring up
 real persistence, the target shape to converge on is the ledger/vault model in
 `packages/core/src/db/schema.ts` + `ledger.ts`, not the ad-hoc `AppState` shape in
@@ -116,7 +116,7 @@ bills/savings.
 - A separate **native/local auth** system also lives in `apps/web/src/lib/auth.ts` +
   `store.tsx` (`signIn`/`signUp`/`signOut`): client-side SHA-256 password hashing (Web Crypto),
   email/password validation, and localStorage-based rate-limiting/lockout, with accounts and
-  sessions stored under `neco_weekli_users_v1` / `neco_weekli_session_v1`. This is what
+  sessions stored under legacy local keys. This is what
   `AuthModal` (`apps/web/src/components/auth/auth-modal.tsx`) presents as email/password
   sign-in, alongside a "Continue with Google" button that opens Clerk's own hosted flow.
   Treat these as two independent systems that happen to share one modal's UI — a user
@@ -124,10 +124,10 @@ bills/savings.
 
 ### Design system
 
-`design.md` at the repo root documents the exact visual language the app follows (Wise's —
-lime-green `#9fe870` primary accent, sage canvas, Wise Sans/Inter type pairing, 24px pill
-radii, etc.). It is applied directly as CSS custom properties in
-`apps/web/src/app/globals.css`'s Tailwind v4 `@theme` block. Check `design.md` before
+`DESIGN.md` at the repo root documents the AfterBills visual language — the
+lime-green `#9fe870` primary accent, sage canvas, Manrope/Inter type pairing,
+and 24px rounded surfaces. It is applied directly as CSS custom properties in
+`apps/web/src/app/globals.css`'s Tailwind v4 `@theme` block. Check `DESIGN.md` before
 introducing new colors, radii, spacing, or type scales — new UI should reuse its tokens
 rather than inventing values.
 

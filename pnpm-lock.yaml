@@ -17,12 +17,12 @@ importers:
 
   apps/web:
     dependencies:
+      '@afterbills/core':
+        specifier: workspace:*
+        version: link:../../packages/core
       '@clerk/nextjs':
         specifier: ^7.8.2
         version: 7.8.2(next@15.5.22(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@neco/core':
-        specifier: workspace:*
-        version: link:../../packages/core
       drizzle-orm:
         specifier: ^0.38.4
         version: 0.38.4(@libsql/client@0.14.0)(@types/react@19.2.17)(react@19.2.8)

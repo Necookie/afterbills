@@ -21,14 +21,21 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Weekli",
-  description: "Know exactly what's safe to spend today.",
-  applicationName: "Weekli",
+  title: {
+    default: "AfterBills: Payday Budget",
+    template: "%s · AfterBills",
+  },
+  description: "Know what’s left. Spend without guessing.",
+  applicationName: "AfterBills",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Weekli",
+    title: "AfterBills",
+  },
+  icons: {
+    icon: "/icon.svg",
+    apple: "/apple-touch-icon.svg",
   },
 };
 
@@ -52,6 +59,7 @@ export default function RootLayout({
         <ClerkProvider
           appearance={{
             options: {
+              logoImageUrl: "/icon.svg",
               unsafe_disableDevelopmentModeWarnings: true,
             },
             variables: {

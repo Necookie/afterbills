@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 /* =============================================================================
-   Weekli design tokens — a lime-on-sage fintech system (our own brand,
-   pattern inspired, no third-party branding).
+   AfterBills design tokens — a calm, high-contrast system for financial
+   clarity. These tokens are original to AfterBills and intentionally avoid
+   third-party brand names.
    ========================================================================== */
 @theme {
   /* Brand & accent */

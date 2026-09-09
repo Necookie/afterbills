@@ -1,5 +1,5 @@
 /**
- * Shared constants for the @neco/core package.
+ * Shared constants for the @afterbills/core package.
  *
  * Centralising weekday data here avoids the same arrays being re-declared in
  * every file that needs to iterate or label weekdays.

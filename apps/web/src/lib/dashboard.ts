@@ -2,7 +2,7 @@
  * Dashboard view-model computation. Pure function — no I/O, no side-effects.
  *
  * Stands in for real user data + ledger until auth and Turso are wired in.
- * It drives the real @neco/core engine so headline numbers are genuinely
+ * It drives the real @afterbills/core engine so headline numbers are genuinely
  * computed, not hard-coded.
  */
 
@@ -20,7 +20,7 @@ import {
   toMinor,
   weekdayIndexFrom,
   weekRange,
-} from "@neco/core";
+} from "@afterbills/core";
 import { LOCALE } from "./seed.ts";
 import { ESSENTIAL_CATEGORIES, type AppState } from "./types.ts";
 
@@ -57,7 +57,7 @@ function makeFmt(currency: string): (m: number) => string {
  * Computes the full dashboard view-model from mutable {@link AppState}.
  *
  * This is a pure function called on every state change (memoised in the
- * store via `useMemo`). It exercises the @neco/core engine for all money math.
+ * store via `useMemo`). It exercises the @afterbills/core engine for all money math.
  *
  * @param state - Current application state.
  * @param now   - Reference "now" date; defaults to `new Date()`. Inject in tests.

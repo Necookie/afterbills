@@ -1,6 +1,6 @@
 // Minimal app-shell service worker (Phase A). Real offline-first data lands in
 // the Expo phase via Turso embedded replicas — see PRD_SRS.md §1.3.
-const CACHE = "weekli-shell-v1";
+const CACHE = "afterbills-shell-v1";
 const SHELL = ["/", "/manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {

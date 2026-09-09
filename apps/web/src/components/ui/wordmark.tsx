@@ -1,4 +1,4 @@
-/** Weekli wordmark / logo lockup used in the sidebar and mobile header. */
+/** AfterBills wordmark / logo lockup used in the sidebar and mobile header. */
 
 export function Wordmark({ size = "md" }: { size?: "md" | "lg" }) {
   const box = size === "lg" ? "size-8 text-lg" : "size-7 text-base";
@@ -8,10 +8,10 @@ export function Wordmark({ size = "md" }: { size?: "md" | "lg" }) {
       <span
         className={`grid ${box} place-items-center rounded-lg bg-primary font-display font-extrabold text-on-primary`}
       >
-        w
+        a
       </span>
       <span className={`font-display ${text} font-extrabold tracking-tight`}>
-        weekli
+        afterbills
       </span>
     </div>
   );

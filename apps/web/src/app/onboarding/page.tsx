@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { OnboardingWizard } from "@/components/onboarding/onboarding-wizard";
 
 export const metadata: Metadata = {
-  title: "Get Started · Weekli",
+  title: "Get Started",
   description: "Calibrate your weekly pulse, commitments, and runway.",
 };
 

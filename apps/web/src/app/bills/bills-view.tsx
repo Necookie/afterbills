@@ -1,6 +1,6 @@
 "use client";
 
-import { FREQUENCY_LABEL } from "@neco/core";
+import { FREQUENCY_LABEL } from "@afterbills/core";
 import { Plus } from "lucide-react";
 import { useMemo, useState } from "react";
 import { PageHeading } from "@/components/page-heading";
