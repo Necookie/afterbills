@@ -51,6 +51,9 @@ export default function RootLayout({
       <body>
         <ClerkProvider
           appearance={{
+            options: {
+              unsafe_disableDevelopmentModeWarnings: true,
+            },
             variables: {
               colorPrimary: "#9fe870",
               colorBackground: "#ffffff",
