@@ -1,6 +1,8 @@
 # dependencies
 node_modules/
 .pnpm-store/
+.cache/
+.eslintcache
 
 # builds
 .next/
@@ -12,9 +14,8 @@ build/
 
 # env & secrets
 .env
-.env.local
-.env*.local
-.env.production
+.env.*
+!.env.example
 
 # databases (local dev)
 *.db
